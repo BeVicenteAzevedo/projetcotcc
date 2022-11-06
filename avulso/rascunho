@@ -1,0 +1,187 @@
+<div class="cabecalho">
+    <h1 class="titulo">PRINCIPAIS EVENTOS</h1>    
+    <h2 class="filtro"><img src="./assets/filtro.png" class="filt" alt="filtro"> FILTROS</h2>
+    </div>
+
+<div class="flex-container">
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/ifmusica.png" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">Ter, 02 Ago  ·  19:00</h6>  
+        <h4 class="card-title">If In Concert</h4>
+        <h6 class="card-local">Sala 07</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/bota.jfif" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">Sáb, 06 Ago · 16:30</h6>  
+        <h4 class="card-title">Botafogo x Ceará</h4>
+        <h6 class="card-local">Estádio Nilton Santos</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/rock.jfif" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">02 SET  >  04 SET  ·  08 SET  >  11 SET</h6>  
+        <h4 class="card-title">Rock In Rio</h4>
+        <h6 class="card-local">Parque Olímpico - RJ</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/copa.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">21 NOV  > 18 DEZ</h6>  
+        <h4 class="card-title">Copa do Mundo </h4>
+        <h6 class="card-local">Catar</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/bbq.jfif" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">27 MAI  >  29 MAI</h6>  
+        <h4 class="card-title">Blend BBQ Festival</h4>
+        <h6 class="card-local">Caminho Niemeyer</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/brag.png" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">SÁB, 20 SET · 19:00</h6>  
+        <h4 class="card-title">Brasil x Argentina</h4>
+        <h6 class="card-local">Arena Fonte Nova</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/tivoli.jfif" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">30 JUL > 07 AGO</h6>  
+        <h4 class="card-title">Tivoli Park</h4>
+        <h6 class="card-local">Via Parque Shopping</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+    <div class="card" style="width: 18rem;">
+        <img src="./assets/comic.png" class="card-img-top" alt="...">
+        <div class="card-body">
+        <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
+        <h6 class="card-data">21 JUL  >  24 JUL</h6>  
+        <h4 class="card-title">Comic Con</h4>
+        <h6 class="card-local">San Diego</h6>
+        <a href="#" class="btn btn-success">Conferir</a>
+        </div>
+    </div> 
+
+</div>
+
+.flex-container {
+    display: flex;
+    /* background-color: rgb(0, 0, 0); */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 10px;
+    
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 20px;
+    padding: 20px;
+    font-size: 30px;
+    height: 350px;
+    width: 250px;
+    transition: 200ms;
+  }
+  
+  .card-img-top {
+    width: 286px;
+    height: 160px;
+  }
+  
+  .card-data {
+    font-size: 12px;
+    color: #ff2948;
+    font-family: 'Work Sans', sans-serif;
+  }
+  
+  .card-title {
+    color: #191F28;
+    font-size: 22px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .card-local {
+    color: #4c576c;
+    font-size: 12px;
+    font-family: 'Work Sans', sans-serif
+  
+  }
+  
+  .cabecalho {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin: 15px;
+  }
+  
+  .filt {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .titulo {
+    font-size: 50px;
+  }
+  
+  .perfi {
+    height: 30px;
+    width: 30px;
+  }
+  
+  h2 {
+    color: black;
+    text-align: right;
+  }
+  
+  header {
+    margin: 20px;
+    border: 1rem;
+    border-bottom: 1px solid #000; 
+    /* box-shadow: 0 0 0.1em rgb(0, 0, 0); */
+  }
+  
+  div:hover {
+    transform: scale(0,1.0,1);
+  }
+  
+  a {
+    cursor: pointer;
+  }
+  
+  .filtro {
+    font-size: 34px;
+  }
+  
+  
