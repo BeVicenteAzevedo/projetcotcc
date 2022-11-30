@@ -1,0 +1,137 @@
+body, html {
+    background-color: #ffffff;
+    /* background-color: #4796a8;  */
+    color: white;
+  }
+  
+  .logo {
+    height: 130px;
+    width: 130px;
+    float: left;
+  }
+  
+  header {  
+    /* position: fixed; */
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
+    margin-bottom: 100% black ;
+    height: 150px;
+    border: 1rem;
+    width: 100%;
+    float: left;
+  
+  }
+  
+  .pes {
+      border: none;
+      width: 100%;
+      padding: 0px 8px;
+      font-size: 16px;
+      margin: 10px;
+      outline: none;
+      border-radius: 30px;
+      align-self: center;
+      margin-left: 10px;
+      float: left;
+  }
+  
+  
+  
+  .btn-login, .btn-create-account, .btn-create-event {
+    margin-right: 11px;
+    padding: 7px 28px 11px;
+    border-style: solid;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    font-weight: 400;
+    color: black;
+    border: 1px solid transparent;
+    background-color: transparent;
+    padding: 12px 16px;
+  }
+  
+  .btn-create-account {
+    border-color: #a619b3;
+  }
+  
+  .btn-create-account:hover {
+    background-color: #a619b3;;
+  }
+  
+  .btn-create-event:hover {
+    background-color: #4796a8;
+  }
+  
+  .btn-login:hover {
+    background-color: #bbff9c;
+  }
+  .card {
+    text-align: center;
+  }
+
+  .card-data {
+    color: red;
+  }
+   
+    .flex-container {
+      display: flex;
+      flex-wrap: nowrap;
+      
+    }
+    
+    .flex-container > div {
+      background-color: #f1f1f1;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+    } 
+
+  .h2 {
+    font-family: "Open Sans", sans-serif;
+  }
+
+.botton {
+  width: 35px;
+  height: 35px;
+  float: right;
+}
+
+
+  #menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+  padding: 20px;
+  display: inline-block;
+  text-decoration: none;
+  transition: background .4s;
+}
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#menu {
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4796a8;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+  
+  
