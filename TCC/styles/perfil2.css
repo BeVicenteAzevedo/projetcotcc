@@ -1,0 +1,14 @@
+.navbar.bg-light {
+    background-color: white;
+}
+    .form-control {
+      border-radius: 4.25rem;
+    }
+
+  body {
+    background-color: white;
+  }
+
+  .h2 {
+    font-family: "Open Sans", sans-serif;
+  }
