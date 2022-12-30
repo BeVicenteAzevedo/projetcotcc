@@ -116,52 +116,61 @@ function execIncluir() {
 	
 
 
-	$infos = "
-	<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-    <title>Qual é a boa?</title>
-	</head>
-	<div class='modal fade' id='modalCadastro' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' >
-    <div class='modal-dialog' role='document'>
-      <div class='modal-content'>
-        <div class='modal-header'>
-          <h5 class='modal-title' id='exampleModalLabel'>Qual é a boa?</h5>
-          <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
-            <span aria-hidden='true'>&times;</span>
-          </button>
-        </div>
-        <div class='modal-body'>
-          Seu cadastro foi realizado com sucesso!
-        </div>
-        <div class='modal-footer'>
-          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>
-          <button type='button' class='btn btn-primary'>Fazer Login</button>
-        </div>
-      </div>
-    </div>
-  </div>
-	";
+// 	$infos = "
+// 	<head>
+//     <meta charset='UTF-8'>
+//     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+//     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+//     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+//     <title>Qual é a boa?</title>
+// 	</head>
+// 	<div class='modal fade' id='modalCadastro' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' >
+//     <div class='modal-dialog' role='document'>
+//       <div class='modal-content'>
+//         <div class='modal-header'>
+//           <h5 class='modal-title' id='exampleModalLabel'>Qual é a boa?</h5>
+//           <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+//             <span aria-hidden='true'>&times;</span>
+//           </button>
+//         </div>
+//         <div class='modal-body'>
+//           Seu cadastro foi realizado com sucesso!
+//         </div>
+//         <div class='modal-footer'>
+//           <button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>
+//           <button type='button' class='btn btn-primary'>Fazer Login</button>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// 	";
 	
 	
 	echo $infos;
 	
-	
-	
 
 	if($status) {
-	    echo "<br>Usuário cadastrado com sucesso!";
-	}
-	else {
-	    echo "<br>ERRO AO REALIZAR O CADASTRO. TENTE NOVAMENTE";
+	//     echo "<br>Usuário cadastrado com sucesso!";
+	// }
+	// else {
+	//     echo "<br>ERRO AO REALIZAR O CADASTRO. TENTE NOVAMENTE";
+	// }
+
+	// echo "<br><hr><a href='index.php'>VOLTAR</a>";
+
+	echo " <script>
+				alert('Cadastro realizado com sucesso! ');
+				window.location.href='index.php';
+			</script>";
 	}
 
-	echo "<br><hr><a href='index.php'>VOLTAR</a>";
+	else " <script>
+				alert(' Falha no cadastro. Tente novamente');
+				window.location.href='cadastro.php';
+			</script>";
+	}
 		
 	
-}
 function execListar(){
 	
 	$sql = "select * from usuario";

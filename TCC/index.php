@@ -28,7 +28,7 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/styles.css"> 
   <title>Qual é a boa?</title>
   <link REL="SHORTCUT ICON" HREF="assets/favicon.ico">
 </head>
@@ -117,15 +117,15 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
            
            echo "
            
-           <div class='flex-container'>
-           <div class='card' style='width: 18rem;'>
+           <div class='flex-container' style='display: flex; align-items: center'>
+           <div class='card' style='width: 18.5rem;'>
            <form action='evento.php' method='get'>
-        <img src='./assets/bfrcrp.jpg' class='card-img-top' alt='...'>
-        <div class='card-body'>
-        <h6 class='card-data'> $data_evento </h6>  
-        <h4 class='card-title'>$nome_evento</h4>
-        <h6 class='card-local'>$local_evento</h6>
-        <input type='hidden' name='entrada' value='$nome_evento'>
+            <img src='./assets/bfrcrp.jpg' class='card-img-top' alt='...'>
+          <div class='card-body'>
+          <h6 class='card-data'> $data_evento </h6>  
+          <h4 class='card-title'>$nome_evento</h4>
+          <h6 class='card-local'>$local_evento</h6>
+          <input type='hidden' name='entrada' value='$nome_evento'>
                 <input type='submit' class='btn btn-success' name='op' value='Conferir'>
         </input>
         </form>
@@ -141,8 +141,9 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
 
 
     <!-- <div class="xereca">
-    <h2 id="Nit">Eventos em Niterói</h2>
+    <h2 id="Nit" class="pri">Eventos em Niterói</h2>
     </div>
+    
 
     <div class="xereca">
     <h2 id="Nit">Eventos em Itaboraí</h2>
@@ -158,7 +159,7 @@ https://codepen.io/girraj-ch/details/yLBdjNX -->
 
     <div class="xereca">
     <h2 id="Nit">Eventos em Rio de Janeiro</h2>
-    </div> -->
+    </div> --> 
 
 </body>
 </html>

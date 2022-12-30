@@ -1,24 +1,3 @@
-<?php
-    include("verifica_login.php");
-    include_once("banco.php"); // caminho do seu arquivo de conexão ao banco de dados 
-    $host = "127.0.0.1";  
-    $db   = "qualeaboa";     
-    $user = "root";       
-    $pass = "";           
-
-    $conn = mysqli_connect("$host","$user","$pass","$db") or die ("problemas na conexão");
-    $consulta = "SELECT * FROM usuario"; 
-    $con = $conn->query($consulta) or die($conn->error);
-
-	if(!isset($_SESSION))
-		{	
-			header('Location: index.php');
-			exit();
-		}
-		
-
-?>
-
 <html>
   <head>
     <title>Qual é a boa?</title>
@@ -106,7 +85,8 @@
       color: black;
       }
       input::placeholder {
-      color: #cfbebe;
+      /* color: #cfbebe; */
+      color: black;
       }
       option:focus {
       border: none;
@@ -169,13 +149,13 @@
       <form action="evento.php" method="get">
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
-          <h1>  Criar Evento</h1>
+          <h1>  Editar meu evento</h1>
         </div>
         <div class="info">
             <label>Nome do evento:</label>
-                <input class="fname" type="text" name="nome_evento" placeholder="Nome do Evento" maxlength="20" required>
+                <input class="fname" type="text" name="nome_evento" placeholder="Botafogo x Audax" maxlength="20" required>
             <label>Endereço: </label> 
-                <input type="text" name="local_evento" placeholder="Avenida John Textor, xxx" required>
+                <input type="text" name="local_evento" placeholder="Estádio Nilton Santos" required>
             <label>Cidade: </label>
             <select id="cidade" name="cidade">
                 <option value="Niterói">Niterói</option>
@@ -190,9 +170,9 @@
             <label>Hora: </label>
                 <input type="time" name="hora" placeholder="" class="espec" required>
             <label>Preço: </label>
-                <input type="text" name="preco" placeholder="R$90,00" required>
+                <input type="text" name="preco" placeholder="R$20,00" required>
             <label>Classificação Indicativa: </label>
-                <input type="int" name="classificacao_indicativa" placeholder="14 anos" required>
+                <input type="int" name="classificacao_indicativa" placeholder="0" required>
             <label>Assunto: </label>
             <select id="assunto" name="assunto">
                 <option value="Acadêmico">Acadêmico</option>
@@ -221,12 +201,14 @@
             </script>
             <label>Descrição: </label>
                 <br>
-                <textarea class="descricao" cols="35" rows="8" name='descricao'></textarea><br>
+                <textarea class="descricao" cols="35" rows="8" name='descricao'>
+                O processo de internacionalização da marca do Botafogo dará um passo além. O Alvinegro fará um amistoso com o Crystal Palace-ING no dia 13 de dezembro no Selhurst Park, estádio dos Eagles. O duelo marca o encontro de dois clubes da Eagle Football, rede multiclubes de John Textor. A partida já faz parte do planejamento do Botafogo visando 2023. Após o fim do Brasileirão, os jogadores não ganharão férias e continuarão treinando visando o duelo amistoso. O clube busca retomar a tradição de realizar excursões internacionais, com foco em "vivenciar competições de alto nível na Europa e nos Estados Unidos
+                </textarea><br>
             <label>Autor: </label>
-                <input required name='autor' value='<?php echo $_SESSION['login']?>'>
+                <input required name='autor' value="bernardo1">
 			    <input type='hidden' name='op' value='1'>
         </div>
-        <button type="submit" data-toggle="modal" data-target="#modalEvento" name="entrada" value="CRIAR">Criar</button>
+        <button type="submit" data-toggle="modal" data-target="#modalEvento" name="entrada" value="CRIAR">Alterar</button>
         <button type='reset' name='limpar' value='Limpar'>Limpar</button>
       </form>
     </div>

@@ -34,12 +34,14 @@ switch($operacao){
 			if($entrada == "CRIAR") 
 				execIncluir();    
 			break;
+
 		case 2:  // listar
 			execListar();
 			break;
 		case "Conferir":
 			execPesquisar();   
 			break;
+
 		case 4:  // alterar
 			$entrada = $_GET['entrada'];
 			if($entrada == 1)
@@ -49,6 +51,7 @@ switch($operacao){
 			if($entrada == 3)
 				execAlterar();   
 			break;
+			
 		case 5:  // excluir
 			$entrada = $_GET['entrada'];            
 			if($entrada == 1)
@@ -116,13 +119,32 @@ function execIncluir() {
 	
 	$status = mysqli_query($conn,$sql);
 	
-	if($status)
-	    echo "<br>Evento criado com sucesso!";
-	else
-	    echo "<br>EERRO AO CRIAR O EVENTO. TENTE NOVAMENTE";
+	if($status) {
+
+	echo "  <script>
+				alert('Evento criado com sucesso');
+				window.location.href='index.php';
+			</script>";
+	}
+
+	else {
+
+	echo " <script>
 	
-	echo "<br><hr><a href='./perfil.php'>VOLTAR</a>";
-		
+		alert(' Falha no cadastro, tente novamente!  ');
+		window.location.href='criarevento.php';
+		</script>";
+
+	}
+	
+
+	//     echo "<br>Evento criado com sucesso!";
+	// else
+	//     echo "<br>EERRO AO CRIAR O EVENTO. TENTE NOVAMENTE";
+	
+	// echo "<br><hr><a href='./perfil.php'>VOLTAR</a>";
+
+	
 	
 }
 function execListar(){

@@ -5,14 +5,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Qual é a boa?</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qual é a boa?</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 	<link REL="SHORTCUT ICON" HREF="assets/favicon.ico">
 
+		 <!-- <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" type="text/css" href="styles/util.css">
-        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
+		<link rel="stylesheet" type="text/css" href="./styles/util.css">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+
 		<style>
 			#pau {
 				visibility: hidden;
@@ -43,6 +51,7 @@
                     ?>
 
 					<span class="login100-form-title p-b-48">
+						<img src="./assets/logofc.png" style="height: 100px; width: 100px;">
 						<!-- <i class="zmdi zmdi-font"></i> -->
 					</span>
 
@@ -53,7 +62,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
+							<i class="zmdi zmdi-eye"></i> 
 						</span>
 						<input class="input100" type="password" name="password" minlength="8" required>						
 						<span class="focus-input100" data-placeholder="Senha"></span>
@@ -82,6 +91,13 @@
 			</div>
 		</div>
 	</div>
-    
+
+	<!-- <script src="js/main.js"></script>
+	<script src="vendor/jquery-3.2.1.min.js"></script> -->
+     
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/main.js"></script>
+    <script src="styles/main.js"></script>
+	
 </body>
 </html>

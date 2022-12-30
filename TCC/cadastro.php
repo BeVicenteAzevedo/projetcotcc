@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link REL="SHORTCUT ICON" HREF="assets/favicon.ico">
-    <title>Login</title>
+    <title>Cadastro</title>
 
 	<link rel="stylesheet" type="text/css" href="./styles/util.css">
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	
 	
     <div class="limiter">
 		<div class="container-login100">
@@ -32,22 +34,22 @@
 					</span>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="login" required>
+						<input class="input100" type="text" name="login" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder="Login"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="nome_usuario" required>
+						<input class="input100" type="text" name="nome_usuario" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder="Primeiro nome"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="sobrenome" required>
+						<input class="input100" type="text" name="sobrenome" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder="Sobrenome"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="email" name="email" required>
+						<input class="input100" type="email" name="email" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder="E-mail"></span>
 					</div>
 
@@ -55,7 +57,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="senha" required>
+						<input class="input100" type="password" name="senha" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
 
@@ -63,17 +65,17 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="senha" required>
+						<input class="input100" type="password" name="senha" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder="Confirme sua senha"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="date" name="data_nascimento" required>
+						<input class="input100" type="date" name="data_nascimento" required autocomplete= "off">
 						<span class="focus-input100" data-placeholder=""></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="int" name="cpf" required>
+						<input class="input100" type="int" name="cpf" required autocomplete= "off" data-mask="000.000.000-00" maxlength="11" size="11" minlength="11">
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
@@ -120,6 +122,9 @@
 
 </head>
 <body>
-    <!-- <script src="./css/main.js"></script> -->
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/main.js"></script>
+    <script src="styles/main.js"></script>
 </body>
 </html>

@@ -17,13 +17,14 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/perfil2.css">
+  
   <!-- <link rel="stylesheet" href="css/style.css"> -->
   <link REL="SHORTCUT ICON" HREF="assets/favicon.ico">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -57,9 +58,11 @@
           <?php echo $_SESSION['login']?>
         </a>
           <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-            <h6 class="dropdown-header">Meu perfil</h6>
-            <a class="dropdown-item" href="editardados.html">Editar meus dados</a>
-            <a class="dropdown-item" href="criarevento.php">Criar meu evento</a>
+            <h6 class="dropdown-header">My profile</h6>
+            <a class="dropdown-item" href="editardados.php">Update my personal data</a>
+            <a class="dropdown-item" href="criarevento.php">Create Event</a>
+            <a class="dropdown-item" href="apagarevento.html">Delete an event</a>
+
             <a class="dropdown-item" href="logout.php">Sair</a>
           </div>
 
@@ -72,7 +75,10 @@
 
   <div class="xereca">
     <h3 class="pri">Meus Eventos</h3>
-</div>
+  </div><br>
+
+  <!-- adicionei isso -->
+  <div class='row-flex' style="display: flex; flex-flow: row wrap">
   
   <?php
        
@@ -85,7 +91,7 @@
        $status = mysqli_query($conn,$sql);
        $total = mysqli_num_rows($status);
        
-       echo"<center><table border=1 width=80%>";
+       echo"<table border=1 width=80%>";
        
        
        $linha = mysqli_fetch_array($status);
@@ -102,53 +108,29 @@
            $assunto = $linha['assunto'];
            $descricao = $linha['descricao'];
            $autor = $linha['autor'];
-           
+
            echo "
-           <form action='evento.php' method='get'>
-           <div class='flex-container'>
-           
-               <div class='card' style='width: 18rem;'>
-               <img src='./assets/copa.jpg' class='card-img-top' alt='...'>
-               <div class='card-body'>
-               <h6 class='card-data'>$data_evento</h6>  
-               <h4 class='card-title'>$nome_evento</h4>
-               <h6 class='card-local'>$local_evento</h6>
-               <input type='hidden' name='entrada' value='$nome_evento'>
-               <input type='submit' class='btn btn-success' name='op' value='Conferir'>
-               </input>
-               </div>
-               </div> 
-               </div>
-               </form>
-               
+              <form action='evento.php' method='get'>
+                  <div class='flex-container'>
+                    <div class='card' style='width: 18rem;'>
+                      <img src='./assets/bfrcrp.jpg' class='card-img-top' alt='...'/>
+                        <div class='card-body'>
+                          <h6 class='card-data'>$data_evento</h6>  
+                          <h4 class='card-title'>$nome_evento</h4>
+                          <h6 class='card-local'>$local_evento</h6>
+                          <input type='hidden' name='entrada' value='$nome_evento'/>
+                          <input type='submit' class='btn btn-success' name='op' value='Conferir'/>
+                        </div>
+                    </div> 
+                  </div>
+              </form>
                ";
                $linha = mysqli_fetch_assoc($status);
           }
           
        ?>
-
-        <form action='evento.php' method="get">
-            <div class="card" style="width: 18rem;">
-                <img src="./assets/bfrcrp.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                <!-- <h6 class="card-tipo">Tipo: ....</h6> -->
-                <h6 class="card-data">Ter, 02 Ago  ·  19:00</h6>  
-                <h4 class="card-title">If In Concert</h4>
-                <h6 class="card-local">Sala 07</h6>
-                <input type='hidden' name="entrada" value="">
-                <input type="submit" class="btn btn-success" name="op" value="Conferir">
-        </input>
-            </div>
-
-          
-        </form>
+    <!-- fecha aqui -->
     </div>
-
-
-    
-    
-    
-    
+    </div>    
 </body>
-
 </html>
