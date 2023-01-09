@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link REL="SHORTCUT ICON" HREF="assets/favicon.ico">
-    <title>Login</title>
+    <title>Qual é a boa?</title>
 
 	<link rel="stylesheet" type="text/css" href="./styles/util.css">
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
-	<link rel="stylesheet" type="text/css" href="./styles/main.css">
 	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
 	
 	
@@ -31,7 +30,7 @@
                     ?>
 
 					<span class="login100-form-title p-b-48">
-					<img src="./assets/logofc.png" style="height: 100px; width: 100px;">
+                      	<img src="./assets/logofc.png" style="height: 100px; width: 100px;">
 						<!-- <i class="zmdi zmdi-font"></i> -->
 					</span>
 
@@ -67,7 +66,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="confirmarsenha" minlength="8" required>
+						<input class="input100" type="password" name="confirmsenha" minlength="8" required>
 						<span class="focus-input100" data-placeholder="Confirme sua senha" minlength="8"></span>
 					</div>
 
@@ -77,7 +76,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="int" name="cpf" required>
+						<input class="input100" type="int" name="cpf" required maxlength="11" pattern="[0-9]{11}" title="Digite um CPF apenas com números">
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
@@ -123,9 +122,10 @@
 	</div>
 
 </head>
-<body> 
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<body>
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="js/main.js"></script>
     <script src="styles/main.js"></script>
+    
 </body>
 </html>

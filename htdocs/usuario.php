@@ -43,36 +43,34 @@ function formIncluir() {
 	
 	echo "
     <html>
-    <head>
-	    <meta charset='utf-8'>
-    </head>
-    <body>
-    <center><h1>CADASTRO DE USUÁRIO</h1></center>
-    <HR>
-	    <form action='usuario.php' method='GET'>
-		    PREENCHA OS DADOS: <BR>
-			<br>LOGIN: <input type='text' name='login'> <br>
-			<br>NOME: <input type='text' name='nome_usuario'> <br>
-			<br>SOBRENOME: <input type='text' name='sobrenome'> <br>
-			<br>E-MAIL: <input type=email name='email'> <br>			
-			<br>SENHA: <input type='password' name='senha'> <br>
-			<br>DATA DE NASCIMENTO: <input type='date' name='data_nascimento'> <br>
-			<br>CPF:<input type='cpf' name='cpf'> <br>
-            <input type='hidden' name='op' value='1'>
-		    <input type='hidden' name='entrada' value='2'>
-		    <input type='submit' name='enviar' value='CRIAR'>
-		    <input type='reset' name='limpar' value='LIMPAR'>
-        </form>
-    </body>
-    </html>	
-    ";
-
+    	<head>
+	    	<meta charset='utf-8'>
+    	</head>
+    
+		<body>
+    		<h1>CADASTRO DE USUÁRIO</h1>
+    		<HR>
+	    
+			<form action='usuario.php' method='GET'>
+		    	PREENCHA OS DADOS: <BR>
+					<br>LOGIN: <input type='text' name='login'> <br>
+					<br>NOME: <input type='text' name='nome_usuario'> <br>
+					<br>SOBRENOME: <input type='text' name='sobrenome'> <br>
+					<br>E-MAIL: <input type=email name='email'> <br>			
+					<br>SENHA: <input type='password' name='senha'> <br>
+					<br>DATA DE NASCIMENTO: <input type='date' name='data_nascimento'> <br>
+					<br>CPF:<input type='cpf' name='cpf'> <br>
+            			<input type='hidden' name='op' value='1'>
+		    			<input type='hidden' name='entrada' value='2'>
+		    			<input type='submit' name='enviar' value='CRIAR'>
+		    			<input type='reset' name='limpar' value='LIMPAR'>
+        	</form>
+    	</body>
+    </html>	";
 }
+
 function execIncluir() {
 	
-	
-	
-
 	$host = "127.0.0.1";  
 	$db   = "qualeaboa";     
 	$user = "root";       
@@ -80,10 +78,8 @@ function execIncluir() {
 
 	$conn = mysqli_connect("$host","$user","$pass","$db") or die ("problemas na conexão");
 	$login = $_GET['login'];
-
 	$sql2 = "SELECT * FROM usuario WHERE login='$login'";
 	$result = mysqli_query($conn, $sql2);
-	
 	$row = mysqli_num_rows($result);
 	
 	if($_GET['login'] == '' || $_GET['senha'] == '') {
@@ -93,8 +89,9 @@ function execIncluir() {
 	}
 	if($row == 1) {
 		$_SESSION['nao_autenticado'] = true;    
+      
 		header('Location: cadastro.php');
-		exit();
+    	exit();
 	}
 
 	$login = $_GET['login'];
@@ -109,79 +106,67 @@ function execIncluir() {
 	
 	if($confirmsenha != $senha) {
 		$_SESSION['nao_autenticado'] = true;  
+      
 		header('Location: cadastro.php');
     	exit();
+		
 	}
 	
 	$sql = "INSERT INTO usuario (login, nome_usuario, sobrenome, email, senha, data_nascimento, cpf) values('$login', '$nome_usuario', '$sobrenome', '$email', '$senha', '$data_nascimento', '$cpf')";
-	
-	$conn = conectar();
-	
+	$conn = conectar();	
 	$dados = mysqli_query($conn,$sql2) or die (mysqli_error($conn));
 	$total = mysqli_num_rows($dados);
-
 	$status = mysqli_query($conn,$sql);
 	
-
-
 	$infos = "
 	<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-    <title>Qual é a boa?</title>
+    	<meta charset='UTF-8'>
+    	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    	<title>Qual é a boa?</title>
 	</head>
+	
 	<div class='modal fade' id='modalCadastro' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' >
-    <div class='modal-dialog' role='document'>
-      <div class='modal-content'>
-        <div class='modal-header'>
-          <h5 class='modal-title' id='exampleModalLabel'>Qual é a boa?</h5>
-          <button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
-            <span aria-hidden='true'>&times;</span>
-          </button>
-        </div>
-        <div class='modal-body'>
-          Seu cadastro foi realizado com sucesso!
-        </div>
-        <div class='modal-footer'>
-          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>
-          <button type='button' class='btn btn-primary'>Fazer Login</button>
-        </div>
-      </div>
+    	<div class='modal-dialog' role='document'>
+      		<div class='modal-content'>
+        		<div class='modal-header'>
+          		<h5 class='modal-title' id='exampleModalLabel'>Qual é a boa?</h5>
+          		<button type='button' class='close' data-dismiss='modal' aria-label='Fechar'>
+            	<span aria-hidden='true'>&times;</span></button>
+        	</div>
+        		
+				<div class='modal-body'> Seu cadastro foi realizado com sucesso! </div>
+        		<div class='modal-footer'>
+          			<button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>
+          			<button type='button' class='btn btn-primary'>Fazer Login</button>
+        		</div>
+      	</div>
     </div>
   </div>
 	";
 	
-	
 	echo $infos;
 	
-	
-	
-
 	if($status) {
-	    echo "<br>Usuário cadastrado com sucesso!";
+	echo " 	<script>
+				alert('Cadastro realizado com sucesso! ');
+				window.location.href='index.php';
+			</script>";
 	}
-	else {
-	    echo "<br>ERRO AO REALIZAR O CADASTRO. TENTE NOVAMENTE";
-	}
-
-	echo "<br><hr><a href='index.php'>VOLTAR</a>";
-		
-	
+	else " 	<script>
+				alert(' Falha no cadastro. Tente novamente');
+				window.location.href='cadastro.php';
+			</script>";
+        
 }
+
 function execListar(){
 	
-	$sql = "select * from usuario";
-	
+	$sql = "select * from usuario";	
 	$conn = conectar();
-	
 	$status = mysqli_query($conn,$sql);
 	$total = mysqli_num_rows($status);
-	
-	echo"<center><table border=1 width=80%>";
-	echo"<TR><TH>LOGIN</TH><TH>NOME</TH><TH>SOBRENOME</TH><TH>E-MAIL</TH><TH>SENHA</TH><TH>DATA DE NASCIMENTO</TH><TH>CPF</TH></TR>";
-	
 	$linha = mysqli_fetch_array($status);
 	
 	for($i=0; $i<$total; $i++) {
@@ -194,44 +179,36 @@ function execListar(){
 	$data_nascimento = $linha['data_nascimento'];
 	$cpf = $linha['cpf'];
 
-    
-		 echo"<tr><td>$login</td><td>$nome_usuario</td><td>$sobrenome</td><td>$email</td><td>$senha</td><td>$data_nascimento</td><td>$cpf</td></tr>";
-		 $linha = mysqli_fetch_assoc($status);
 	}
-	echo "</table></center>";
-	echo "<br><hr><a href= 'index.html'>VOLTAR</a>";
-	
 }
+
 function formPesquisar() {
 	
-	echo "
+echo "
     <html>
-    <head>
-	    <meta charset='utf-8'>
-    </head>
-    <body>
-    <center><h1>PESQUISA DE EVENTOS</h1></center>
-    <HR>
-	    <form action='usuario.php' method='GET'>
-		    <br>DIGITE O SEU CPF:<input type='text' name='cpf' autocomplete='on'> <br>
-            <input type='hidden' name='op' value='3'>
-		    <input type='hidden' name='entrada' value='2'>
-		    <input type='submit' name='enviar' value='ENVIAR'>
-		    <input type='reset' name='limpar' value='LIMPAR'>
-        </form>
-    </body>
-    </html>	
-	";
+    	<head>
+	    	<meta charset='utf-8'>
+    	</head>
+    
+		<body>
+    		<h1>PESQUISA DE EVENTOS</h1>
+    		<HR>
+	    		<form action='usuario.php' method='GET'>
+		    		<br>DIGITE O SEU CPF:<input type='text' name='cpf' autocomplete='on'> <br>
+            		<input type='hidden' name='op' value='3'>
+		    		<input type='hidden' name='entrada' value='2'>
+		    		<input type='submit' name='enviar' value='ENVIAR'>
+		    		<input type='reset' name='limpar' value='LIMPAR'>
+        		</form>
+    	</body>
+    </html>	";
 }
+
 function execPesquisar(){
     
-	$cpf = $_GET['cpf'];
-	
-	
+	$cpf = $_GET['cpf'];	
 	$conn = conectar();
-
 	$sql = "SELECT * FROM usuario WHERE '$cpf'=cpf";
-	
 	$dados = mysqli_query($conn,$sql) or die (mysqli_error($conn));
 	$total = mysqli_num_rows($dados);
 	
@@ -241,10 +218,6 @@ function execPesquisar(){
 		echo"\n <br><hr><a href='index.html'>VOLTAR</a>";
 		exit();
 	}
-	
-	echo"\n <center><table border=1 width=80%>";
-	echo"\n <TR><TH>LOGIN</TH><TH>NOME</TH><TH>SOBRENOME</TH><TH>E-MAIL</TH><TH>SENHA</TH><TH>DATA DE NASCIMENTO</TH><TH>CPF</TH></TR>";
-	
 	$linha = mysqli_fetch_array($dados);
 	
 	for($i=0; $i<$total; $i++) {
@@ -256,23 +229,18 @@ function execPesquisar(){
 	$senha = $linha['senha'];
 	$data_nascimento = $linha['data_nascimento'];
 	$cpf = $linha['cpf'];
-        		
-		 echo"<tr><td>$login</td><td>$nome_usuario</td><td>$sobrenome</td><td>$$email</td><td>$senha</td><td>$data_nascimento</td><td>$cpf</td></tr>";
-		 $linha = mysqli_fetch_assoc($dados);
-		 
-		echo"\n <br><hr><a href='index.html'>VOLTAR</a>";
-		exit();
 	}
 }
+
 function formPesquisarAlterar() {
 	
-	echo "
+echo "
     <html>
-    <head>
-	    <meta charset='utf-8'>
-    </head>
+    	<head>
+	    	<meta charset='utf-8'>
+    	</head>
     <body>
-    <center><h1>ALTERAÇÃO DE EVENTO</h1></center>
+    	<h1>ALTERAÇÃO DE EVENTO</h1>
     <HR>
 	    <form action='usuario.php' method='GET'>
 		    <br>DIGITE O CPF:<input type='cpf' name='cpf'> <br>
@@ -282,9 +250,9 @@ function formPesquisarAlterar() {
 		    <input type='reset' name='limpar' value='LIMPAR'>
         </form>
     </body>
-    </html>	
-	";	
-	}
+    </html>";	
+}
+
 function formAlterar() {
 	
 	include("verifica_login.php");
@@ -297,14 +265,9 @@ function formAlterar() {
     $conn = mysqli_connect("$host","$user","$pass","$db") or die ("problemas na conexão");
     $consulta = "SELECT * FROM usuario"; 
     $con = $conn->query($consulta) or die($conn->error);
-
 	$conn = conectar();
-
-	
 	$login = $_SESSION['login'];
-	
 	$sql = "SELECT * FROM usuario WHERE '$login' = login";
-	
 	$dados = mysqli_query($conn,$sql);
 	$total = mysqli_num_rows($dados);
 	
@@ -326,71 +289,62 @@ function formAlterar() {
 	$cpf = $linha['cpf'];
 	
 	
-	echo "
+echo "
 
-	<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-    <title>Qual é a boa?</title>
-	<link REL='SHORTCUT ICON' HREF='assets/favicon.ico'>
-
-	<link rel='stylesheet' type='text/css' href='styles/util.css'>
-    <link rel='stylesheet' type='text/css' href='styles/main.css'>
+<!DOCTYPE html>
+	<html lang='en'>
 	
-    <div class='limiter'>
-		<div class='container-login100'>
-			<div class='wrap-login100'>
-				<form class='login100-form validate-form' action ='usuario.php' method='get'>
-					<span class='login100-form-title p-b-26'>
-						Atualizar meus dados ($cpf)
-					</span>
-					<span class='login100-form-title p-b-48'>
-					</span>
-
-					<div class='wrap-input100 validate-input'>
-						<input class='input100' type='text' name='login' value='$login'>
-						<span class='focus-input100' data-placeholder=''></span>
-					</div>
+		<head>
+    		<meta charset='UTF-8'>
+    		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+			<title>Qual é a boa?</title>
+			<link REL='SHORTCUT ICON' HREF='assets/favicon.ico'>
+			<link rel='stylesheet' type='text/css' href='styles/util.css'>
+			<link rel='stylesheet' type='text/css' href='styles/main.css'>
+	
+    	<div class='limiter'>
+			<div class='container-login100'>
+				<div class='wrap-login100'>
+					<form class='login100-form validate-form' action ='usuario.php' method='get'>
+						<span class='login100-form-title p-b-26'>
+							Atualizar meus dados ($login)
+						</span>
 					
-					<div class='wrap-input100 validate-input'>
-						<input class='input100' type='text' value='$nome_usuario' name='nome_usuario'>
-						<span class='focus-input100' data-placeholder=''></span>
-					</div>
+						<span class='login100-form-title p-b-48'></span>
 
 					<div class='wrap-input100 validate-input'>
-						<input class='input100' type='text' value='$sobrenome' name='sobrenome'>
-						<span class='focus-input100' data-placeholder=''></span>
+						<label>CPF: </label>
+                    		<input class='input100' SIZE=10 MAXLENGTH=11 MinLENGTH=11 type='text' name='cpf' value='$cpf'>
+							<span class='focus-input100'></span>
 					</div>
-
+					<div class='wrap-input100 validate-input'>
+                    	<label>Primeiro nome: </label>
+							<input class='input100' type='text' value='$nome_usuario' name='nome_usuario'>
+							<span class='focus-input100'></span>
+					</div>
+					<div class='wrap-input100 validate-input'>
+                    	<label>Sobrenome: </label>
+							<input class='input100' type='text' value='$sobrenome' name='sobrenome'>
+							<span class='focus-input100'></span>
+					</div>
 					<div class='wrap-input100 validate-input' data-validate = 'Valid email is: a@b.c'>
-						<input class='input100' type='email' value='$email' name='email'>
-						<span class='focus-input100' data-placeholder=''></span>
+                    	<label>E-mail: </label>
+							<input class='input100' type='email' value='$email' name='email'>
+							<span class='focus-input100'></span>
 					</div>
-
-						<input class='input100' type='hidden' value='$cpf' name='cpf'>
-
-					
+					<input class='input100' type='hidden' value='$login' name='login'>
             </script>
-
-					
-
 					<div class='container-login100-form-btn'>
 						<div class='wrap-login100-form-btn'>
 							<div class='login100-form-bgbtn'></div>
-							<button value='ExecEditar' name='op' class='login100-form-btn'>
-								Alterar
-							</button>
+							<button value='ExecEditar' name='op' class='login100-form-btn'>Alterar</button>
 						</div>
 					</div>			
 				</form>
 			</div>
 		</div>
 	</div>
-
 </head>
 </html>
     ";
@@ -404,68 +358,54 @@ function execAlterar() {
 	$email = $_GET['email'];
 	$cpf = $_GET['cpf'];
 
-	$sql = "UPDATE usuario SET login='$login', nome_usuario='$nome_usuario', sobrenome='$sobrenome', email='$email' WHERE '$cpf' = cpf";
-	
-	$conn = conectar();
-	
+	$sql = "UPDATE usuario SET cpf='$cpf', nome_usuario='$nome_usuario', sobrenome='$sobrenome', email='$email' WHERE '$login' = login";
+	$conn = conectar();	
 	$status = mysqli_query($conn,$sql);
 	
 	if($status) {
 		session_start();
 		$_SESSION['login'] = $login;
-
-		  
 	    echo " <script>
-		alert('Dados pessoais alterados com sucesso');
-		window.location.href='index.php';
-	</script>";
-
-		
-	}else {
-
-		
-	    echo " <script>
-		alert('Erro na alteração');
+		alert(' Dados pessoais alterados com sucesso!');
 		window.location.href='perfil.php';
-	</script>";
-	
-		
-	}	}
+        </script>";
+      }
+  else {
+	    echo " <script>
+        alert('Erro na alteração, tente novamente');
+        window.location.href='perfil.php';
+        </script>";	
+  }	
+}
 function formExcluir() {
 	
 	echo "
     <html>
-    <head>
-	    <meta charset='utf-8'>
-    </head>
+    	<head><meta charset='utf-8'></head>
     <body>
-    <center><h1>EXCLUSÃO DE USUARIO</h1></center>
-    <HR>
-	    <form action='usuario.php' method='GET'>
-		    <br>DIGITE O CPF:<input type='text' name='cpf'> <br>
-            <input type='hidden' name='op' value='5'>
-		    <input type='hidden' name='entrada' value='2'>
-		    <input type='submit' name='enviar' value='ENVIAR'>
-		    <input type='reset' name='limpar' value='LIMPAR'>			
-        </form>
+    	<h1>EXCLUSÃO DE USUARIO</h1>
+    	<HR>
+	    	<form action='usuario.php' method='GET'>
+		    	<br>DIGITE O CPF:<input type='text' name='cpf'> <br>
+            	<input type='hidden' name='op' value='5'>
+		    	<input type='hidden' name='entrada' value='2'>
+		    	<input type='submit' name='enviar' value='ENVIAR'>
+		    	<input type='reset' name='limpar' value='LIMPAR'>			
+        	</form>
     </body>
-    </html>	
-	";
+    </html>";
 	}
 function execConfirmacaoExcluir() {
-	$cpf = $_GET['cpf'];
-    
-	$conn = conectar();
-    
-    $sql = "SELECT * FROM usuario WHERE '$cpf' = cpf";
 
+	$cpf = $_GET['cpf'];
+	$conn = conectar();
+    $sql = "SELECT * FROM usuario WHERE '$cpf' = cpf";
     $dados = mysqli_query($conn,$sql) or die (mysqli_error($conn));
     $total = mysqli_num_rows($dados);
  
     if($total==0) {
         echo '<br>USUARIO não encontrado';
-
-        echo "\n <br><hr><a href='index.php'>VOLTAR</A>"; 
+        echo "\n <br><hr><a href='index.html'>VOLTAR</A>"; 
         exit();
     }
 
@@ -479,50 +419,44 @@ function execConfirmacaoExcluir() {
 	$data_nascimento = $linha['data_nascimento'];
 	$cpf = $linha['cpf'];
 
+    echo "
+	
+<html>
+    <head><meta charset='utf-8'></head>
 
-    echo
-    "<html>
-    <head>
-        <meta charset='utf-8'>
-    </head>
     <body>
-    <center><h1>EXCLUSÃO DE USUARIO</h1></center>
-    <HR>
-        <form action='usuario.php' method='GET'>
-            PREENCHA OS DADOS: <BR>
+    	<h1>EXCLUSÃO DE USUARIO</h1>
+    	<HR>
+        	<form action='usuario.php' method='GET'>
+            	PREENCHA OS DADOS: <BR>
+					<br>LOGIN:<input type='text' name='login' value='$login'> <br>
+					<br>Nome:<input type='text' name='nome_usuario' value='$nome_usuario'> <br>
+		    		<br>Sobrenome:<input type='text' name='sobrenome' value='$sobrenome'> <br>
+		    		<br>E-mail:<input type='email' name='email' value='$email'> <br>
+					<br>SENHA:<input type='password' name='password' value='$senha'> <br>
+					<br>DATA DE NASCIMENTO:<input type='date' name='data' value='$data_nascimento'> <br>
+					<br>CPF:<input type='cpf' name='cpf' value='$cpf'> <br>	
+				DESEJA REALMENTE EXCLUIR SEU PERFIL? <br><br>    
 			
-			<br>LOGIN:<input type='text' name='login' value='$login'> <br>
-			<br>Nome:<input type='text' name='nome_usuario' value='$nome_usuario'> <br>
-		    <br>Sobrenome:<input type='text' name='sobrenome' value='$sobrenome'> <br>
-		    <br>E-mail:<input type='email' name='email' value='$email'> <br>
-			<br>SENHA:<input type='password' name='password' value='$senha'> <br>
-			<br>DATA DE NASCIMENTO:<input type='date' name='data' value='$data_nascimento'> <br>
-			<br>CPF:<input type='cpf' name='cpf' value='$cpf'> <br>	
-
-            DESEJA REALMENTE EXCLUIR SEU PERFIL? <br><br>    
-
-            <input type='hidden' name='op' value='5'> 
-            <input type='hidden' name='entrada' value='3'>    
-            <input type='submit' name='enviar' value='EXCLUIR'>
-            <br><hr><a href='index.html'>VOLTAR</A>
-        </form>
+					<input type='hidden' name='op' value='5'> 
+            		<input type='hidden' name='entrada' value='3'>    
+            		<input type='submit' name='enviar' value='EXCLUIR'>
+            		<br><hr><a href='index.html'>VOLTAR</A>
+        	</form>
     </body>
-    </html>";}
+</html>";
+}
+
 function execExcluir() {
 	
 	$cpf = $_GET['cpf'];
-	
 	$conn = conectar();
-	
 	$sql = "DELETE FROM usuario WHERE '$cpf' = cpf";
-	
 	$status = mysqli_query($conn,$sql);
 	
 	if($status)
 	    echo "<br>Registro de usuario excluído";
 	else
 	    echo "<br>Erro na exclusão";
-	
-	echo "<br><hr><a href='index.html'>VOLTAR</a>";
-		
+		echo "<br><hr><a href='index.html'>VOLTAR</a>";		
 }	

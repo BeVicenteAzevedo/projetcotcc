@@ -13,6 +13,7 @@
 
         <link rel="stylesheet" type="text/css" href="styles/util.css">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
 		<style>
 			#pau {
 				visibility: hidden;
@@ -36,14 +37,18 @@
                     <?php
                     if(isset($_SESSION['nao_autenticado'])):
                     ?>
-                    <p> ERRO: Usuário ou senha inválidos. </p>
+                  <script>
+						alert('Erro: Usuário ou senha inválidos! ');
+						window.location.href='index.php';
+					</script>
+                    
                     <?php
                     unset($_SESSION['nao_autenticado']);
                     endif;
                     ?>
 
 					<span class="login100-form-title p-b-48">
-					<img src="./assets/logofc.png" style="height: 100px; width: 100px;">
+                      	<img src="./assets/logofc.png" style="height: 100px; width: 100px;">
 						<!-- <i class="zmdi zmdi-font"></i> -->
 					</span>
 
@@ -83,8 +88,7 @@
 			</div>
 		</div>
 	</div>
-
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="js/main.js"></script>
     <script src="styles/main.js"></script>
     

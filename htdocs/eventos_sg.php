@@ -17,6 +17,10 @@
 <!doctype html>
 <html lang="pt-br">
 
+<!-- https://startbootstrap.com/snippets/navbar-logo
+https://codepen.io/girraj-ch/details/yLBdjNX -->
+
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -24,7 +28,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/stylecidade.css"> 
+  <link rel="stylesheet" href="./styles/stylecidade.css">
   <link rel="stylesheet" href="./styles/city.css"> 
   
   <title>Qual é a boa?</title>
@@ -40,13 +44,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div id="menu">
+	<div id="menu">
     <ul>
         <li><a href="./eventos_nit.php">Niterói</a></li>
         <li><a href="./eventos_ita.php">Itaboraí</a></li>
-        <li><a href="./eventos_sg.php">São Gonçalo</a></li>
-        <li><a href="./eventos_mar.php">Maricá</a></li>
-        <li><a href="./eventos_rj.php">Rio de Janeiro</a></li>
+      	<li><a href="./eventos_sg.php">São Gonçalo</a></li>  
+     	<li><a href="./eventos_mar.php">Maricá</a></li>
+      	<li><a href="./eventos_rj.php">Rio de Janeiro</a></li>
     </ul>
 </div>
 
@@ -70,13 +74,13 @@
   </nav>
 
   <div class="xereca">
-    <h2 class="pri">Principais Eventos</h2>
+    <h2 class="pri">Eventos em São Gonçalo</h2>
 </div>
-    
-<div class='row-flex'>
+    <div class='row-flex'>
+
 <?php
        
-       $sql = "select * from evento";
+       $sql = "select * from evento where cidade = 'São Gonçalo'";
        
        $conn = conectar();
        
@@ -103,11 +107,11 @@
            <form action='evento.php' method='get'>
                 <div class='flex-container'>
                   <div class='card'>
-                    <!--<img src='./assets/image.png' class='card-img-top' alt='...'/>-->
+                    <img src='./assets/image.png' class='card-img-top' alt='...'/>
                       <div class='card-body'>
                         <h6 class='card-data'>$data_evento</h6>  
                         <h4 class='card-title'>$nome_evento</h4>
-                        <h6 class='card-local'>$cidade</h6>
+                        <h6 class='card-local'>$local_evento</h6>
                         <input type='hidden' name='entrada' value='$nome_evento'/>
                         <input type='submit' class='btn btn-success' name='op' value='Conferir'/>
                       </div>
@@ -120,6 +124,9 @@
        }
        
     ?>
-</div> 
+</div> <!--fecha a div flex conteiner --> 
+
+
+   
 </body>
 </html>

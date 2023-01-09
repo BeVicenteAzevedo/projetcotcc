@@ -2,7 +2,7 @@
 
    function conectar() {
         $host = "127.0.0.1";  
-        $db   = "qualeaboa";     
+        $db   = "xereca";     
         $user = "root";       
         $pass = "";           
 

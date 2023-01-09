@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 09-Nov-2022 às 00:50
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 8.0.11
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 07/01/2023 às 21:47
+-- Versão do servidor: 10.9.4-MariaDB-1:10.9.4+maria~ubu2204
+-- Versão do PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `evento`
+-- Estrutura para tabela `arquivo`
+--
+
+CREATE TABLE `arquivo` (
+  `codigo` int(11) NOT NULL,
+  `arquivo` varchar(40) NOT NULL,
+  `data` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `evento`
 --
 
 CREATE TABLE `evento` (
@@ -38,12 +50,22 @@ CREATE TABLE `evento` (
   `assunto` text NOT NULL,
   `descricao` varchar(256) NOT NULL,
   `autor` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `evento`
+--
+
+INSERT INTO `evento` (`nome_evento`, `data_evento`, `hora`, `local_evento`, `preco`, `classificacao_indicativa`, `cidade`, `assunto`, `descricao`, `autor`) VALUES
+('rei leao', '2023-12-31', '12:21:00.000000', 'copacabana', '0', 9, 'Niterói', 'Acadêmico', '						ano novo\r\n				  ', 'admingbluz'),
+('sinuca', '2023-02-02', '12:00:00.000000', 'solar do jambeiro, 391', '4', 14, 'Maricá', 'Acadêmico', '												oi\r\n				  \r\n				  ', 'tardelli'),
+('sdcsdc', '2023-03-12', '17:47:00.000000', 'dcsdcsdc', '90', 12, 'Maricá', 'Política', 'ecddcdcdsc', 'admin'),
+('aaaa', '2023-09-12', '12:34:00.000000', 'aaaa', '10', 15, 'Maricá', 'Gastronomia', 'asdasxsxc', 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -54,18 +76,46 @@ CREATE TABLE `usuario` (
   `senha` varbinary(255) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `data_nascimento` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`login`, `nome_usuario`, `sobrenome`, `email`, `senha`, `cpf`, `data_nascimento`) VALUES
+('admingbluz', 'admin', 'admin', 'admin@admin.com', 0x61646d696e313233, '19740991727', '2003-12-23'),
+('carlos tardelli', 'carlos', 'tardelli', 'carlostardelli.tardelli@gmail.com', 0x313233343536373839, '06928328746', '1973-08-12'),
+('gbluz', 'gabriel', 'luz', 'a@a.com', 0x3132333435363738, '12345678911', '2004-12-27'),
+('Hugo2', 'Hugo', 'Gonçalves', 'hugoo@gmail.com', 0x3132333435363738, '11111111111', '2023-01-03'),
+('Jose45', 'Jose', 'Hugo', 'advhtr@gmail.com', 0x3132333435363738, '11111111111', '2023-01-10'),
+('tardelli', 'David', 'Tardelli', 'danilobraz1001@gmail.com', 0x313233343536373839, '01634484770', '2005-03-05');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `usuario`
+-- Índices de tabela `arquivo`
+--
+ALTER TABLE `arquivo`
+  ADD PRIMARY KEY (`codigo`);
+
+--
+-- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`login`),
   ADD UNIQUE KEY `login` (`login`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `arquivo`
+--
+ALTER TABLE `arquivo`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,23 +1,18 @@
 .navbar.bg-light {
 background-color: #ffffff !important;
 } 
-
 .pri {
   margin-left: 2rem;
 }
-
 .menu {
 color: black;
 }
-
 .form-control {
 border-radius: 4.25rem;
 }
-
 #menu ul li {
 display: inline;
-}
-  
+} 
 #menu ul li a {
 padding: 20px;
 display: inline-block;
@@ -25,26 +20,11 @@ text-decoration: none;
 transition: background .4s;
 color: black;
 }
-
 #menu {
 align-items: center;
 margin: 1rem 0 0 7.5rem;
 }
 
-.flex-container {
-display: flex;
-flex-wrap: wrap;
-}
 
-.card {
-text-align: center;
-width: 20rem;
-}
-
-.card-data {
-color: red;
-}
-
-  
   
 
