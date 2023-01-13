@@ -35,8 +35,11 @@
     <a class="navbar-brand" href="index.php">
       <img src="assets/logofc.png" width="100" height="100" class="d-inline-block align-top" alt="">
     </a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
 
-    <div class="dropdown">
+      <div class="dropdown">
   <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Escolha sua região
   </button>
@@ -44,22 +47,51 @@
     <span class="dropdown-header">Regiões do RJ</span>
     <a class="dropdown-item" href="./index_nt.php">Niterói</a>
     <a class="dropdown-item" href="./index_rl.php">Região dos Lagos</a>
-    <a class="dropdown-item" href="./eventos2.php">Região Serrana</a>
   </div>
-</div> 
+</div>
 
   <div id="menu">
-    <ul>
-        <li><a href="./sobre.html">Instruções</a></li>
+    <ul style="font-size: 9px">
+        <li><a href="./eventos_rlar.php">Araruama</a></li>
+        <li><a href="./eventos_rlac.php">Arraial do Cabo</a></li>
+        <li><a href="./eventos_rlbz.php">Búzios</a></li>
+        <li><a href="./eventos_rlcf.php">Cabo Frio</a></li>
+        <li><a href="./eventos_rlig.php">Iguaba Grande</a></li>
+        <li><a href="./eventos_rlsa.php">Saquarema</a></li>
+        <li><a href="./eventos_rlsp.php">São Pedro da Aldeia</a></li>
     </ul>
   </div>
 
+<!-- <div class="dropdown">
+  <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Busque seu assunto
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <span class="dropdown-header">Assuntos</span>
+    <span class="dropdown-item-text">Texto do item dropdown</span> 
+    <a class="dropdown-item" href="./eventos1.php">Acadêmico</a>
+    <a class="dropdown-item" href="./eventos2.php">Nerd/Geek</a>
+    <a class="dropdown-item" href="./eventos3.php">Artesanato</a>
+    <a class="dropdown-item" href="./eventos4.php">Cinema/Teatro</a>
+    <a class="dropdown-item" href="./eventos5.php">Show</a>
+    <a class="dropdown-item" href="./eventos6.php">Esportes</a>
+    <a class="dropdown-item" href="./eventos7.php">Gastronomia</a>
+    <a class="dropdown-item" href="./eventos8.php">Política</a>
+    <a class="dropdown-item" href="./eventos9.php">Saúde</a>
+    <a class="dropdown-item" href="./eventos10.php">Festa</a>
+    <a class="dropdown-item" href="./eventos11.php">Tecnologia</a>
+    <a class="dropdown-item" href="./eventos12.php">Religião</a>
+    <a class="dropdown-item" href="./eventos13.php">Comédia</a>
+    <a class="dropdown-item" href="./eventos14.php">Passeio</a>
+    <a class="dropdown-item" href="./eventos15.php">Infantil</a>    
+  </div>
+</div> -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="mr-auto"></div>
         <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" href="criarevento.php">Criar um evento <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="criareventorl.php">Criar um evento <span class="sr-only">(current)</span></a>
           </li>
             <a class="nav-link dropdown-toggle" href="perfil.php" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php echo $_SESSION['login']?>
@@ -72,7 +104,7 @@
   <h2 class="pri">Confira o que temos</h2>
 </div>
 
-<div class='row-flex'>
+<!-- <div class='row-flex'>
 
 <a href="eventos1.php">  
     <div class='flex-container'>
@@ -237,11 +269,7 @@
           </div>
       </div> 
     </div>
-  </a>
-
-  <div class="xereca">
-  <h2 class="pri">Nossos destaques pra você,Cria</h2>
-</div>
+  </a> -->
 
 </div> <!-- fecha a div row flex dos assuntos -->
 <div class="xereca">
@@ -251,7 +279,7 @@
 <div class='row-flex'>
 <?php
        
-  $sql = "select * from evento";     
+  $sql = "select * from evento where regiao='Região dos Lagos'";     
   $conn = conectar();
   $status = mysqli_query($conn,$sql);
   $total = mysqli_num_rows($status);

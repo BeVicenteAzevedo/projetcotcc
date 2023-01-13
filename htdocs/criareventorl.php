@@ -184,12 +184,15 @@
             <label>Endereço: </label> 
                 <input type="text" name="local_evento" placeholder="Avenida John Textor, xxx" required>
             <label>Cidade: </label>
-				      <select id='cidade' name='cidade'>                 	
-                	<option value='Niterói'>Niterói</option>
-                	<option value='Itaboraí'>Itaboraí</option>
-                	<option value='São Gonçalo'>São Gonçalo</option>
-                	<option value='Maricá'>Maricá</option>
-                	<option value='Rio de Janeiro'>Rio de Janeiro</option>
+				<select id='cidade' name='cidade'>
+                  	
+                	<option value='Araruama'>Araruama</option>
+                	<option value='Arraial do Cabo'>Arraial do Cabo</option>
+                	<option value='Búzios'>Búzios</option>
+                	<option value='Cabo Frio'>Cabo Frio</option>
+                	<option value='Iguaba Grande'>Iguaba Grande</option>
+                  <option value='Saquarema'>Saquarema</option>
+                  <option value='São Pedro da Aldeia'>São Pedro da Aldeia</option>
             	</select>
             <label>Data: </label>
                 <input type="date" name="data_evento" placeholder="" class="espec" required min="2023-01-09">
@@ -200,7 +203,8 @@
             <label>Classificação Indicativa: </label>
                 <input type="int" name="classificacao_indicativa" placeholder="14" maxlength="2">
             <label>Assunto: </label>
-            <select id="assunto" name="assunto">              	
+            <select id="assunto" name="assunto">
+              	
                 <option value="Acadêmico">Acadêmico</option>
                 <option value="Nerd/Geek">Nerd/Geek</option>
                 <option value="Artesanato">Artesanato</option>
@@ -217,13 +221,6 @@
                 <option value="Passeio">Passeio</option>
                 <option value="Infantil">Infantil</option>
               </select>
-
-              <label>Região: </label>
-            <select id="regiao" name="regiao">
-              	
-                <option value="Região dos Lagos">Região dos Lagos</option>
-                <option value="Niterói">Niterói</option>
-            </select>
               <label>Coloque um arquivo de foto do seu evento:</label>
             <!-- <label class="lab" for="arquivo">Enviar arquivo</label> -->
             <input type="file" name="arquivo" accept="image/*">

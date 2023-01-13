@@ -32,11 +32,14 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="index_nt.php">
       <img src="assets/logofc.png" width="100" height="100" class="d-inline-block align-top" alt="">
     </a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
 
-    <div class="dropdown">
+      <div class="dropdown">
   <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Escolha sua região
   </button>
@@ -46,14 +49,42 @@
     <a class="dropdown-item" href="./index_rl.php">Região dos Lagos</a>
     <a class="dropdown-item" href="./eventos2.php">Região Serrana</a>
   </div>
-</div> 
+</div>
 
   <div id="menu">
     <ul>
-        <li><a href="./sobre.html">Instruções</a></li>
+        <li><a href="./eventos_nit.php">Niterói</a></li>
+        <li><a href="./eventos_ita.php">Itaboraí</a></li>
+        <li><a href="./eventos_sg.php">São Gonçalo</a></li>
+        <li><a href="./eventos_mar.php">Maricá</a></li>
+        <li><a href="./eventos_rj.php">Rio de Janeiro</a></li>
     </ul>
   </div>
 
+<!-- <div class="dropdown">
+  <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Busque seu assunto
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <span class="dropdown-header">Assuntos</span>
+    <span class="dropdown-item-text">Texto do item dropdown</span> 
+    <a class="dropdown-item" href="./eventos1.php">Acadêmico</a>
+    <a class="dropdown-item" href="./eventos2.php">Nerd/Geek</a>
+    <a class="dropdown-item" href="./eventos3.php">Artesanato</a>
+    <a class="dropdown-item" href="./eventos4.php">Cinema/Teatro</a>
+    <a class="dropdown-item" href="./eventos5.php">Show</a>
+    <a class="dropdown-item" href="./eventos6.php">Esportes</a>
+    <a class="dropdown-item" href="./eventos7.php">Gastronomia</a>
+    <a class="dropdown-item" href="./eventos8.php">Política</a>
+    <a class="dropdown-item" href="./eventos9.php">Saúde</a>
+    <a class="dropdown-item" href="./eventos10.php">Festa</a>
+    <a class="dropdown-item" href="./eventos11.php">Tecnologia</a>
+    <a class="dropdown-item" href="./eventos12.php">Religião</a>
+    <a class="dropdown-item" href="./eventos13.php">Comédia</a>
+    <a class="dropdown-item" href="./eventos14.php">Passeio</a>
+    <a class="dropdown-item" href="./eventos15.php">Infantil</a>    
+  </div>
+</div> -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="mr-auto"></div>
@@ -239,10 +270,6 @@
     </div>
   </a>
 
-  <div class="xereca">
-  <h2 class="pri">Nossos destaques pra você,Cria</h2>
-</div>
-
 </div> <!-- fecha a div row flex dos assuntos -->
 <div class="xereca">
   <h2 class="pri">Principais Eventos</h2>
@@ -251,7 +278,7 @@
 <div class='row-flex'>
 <?php
        
-  $sql = "select * from evento";     
+  $sql = "select * from evento where regiao='Niterói'";           
   $conn = conectar();
   $status = mysqli_query($conn,$sql);
   $total = mysqli_num_rows($status);
@@ -269,6 +296,7 @@
     $assunto = $linha['assunto'];
     $descricao = $linha['descricao'];
     $autor = $linha['autor'];
+    $regiao = $linha['regiao'];
            
     echo "
             <form action='evento.php' method='get'>

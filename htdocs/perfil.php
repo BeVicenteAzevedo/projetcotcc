@@ -10,11 +10,7 @@
     $consulta = "SELECT * FROM usuario"; 
     $con = $conn->query($consulta) or die($conn->error);
   
-    
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">

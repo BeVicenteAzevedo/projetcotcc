@@ -20,9 +20,7 @@ $login = mysqli_real_escape_string($conn, $_POST['login']);
 $senha = mysqli_real_escape_string($conn, $_POST['password']);
 
 $query = "select login from usuario where login = '$login' and senha = '$senha'";
-
 $result = mysqli_query($conn, $query);
-
 $row = mysqli_num_rows($result);
 
 if($row == 1) {
